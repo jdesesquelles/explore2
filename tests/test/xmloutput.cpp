@@ -27,13 +27,13 @@ QDomDocument xmlOutput::create_testcase_data(QDomDocument doc, QDomElement paren
     if (element == "directory")
     {
 
-     return create_testcase_directory( doc,  parent,  filePath,  fileName);
-
+      doc = create_testcase_directory( doc,  parent,  filePath,  fileName);
     }
     else if (element == "file")
     {
-       return create_testcase_file(doc,  parent,  filePath,  fileName, size, suffix);
+       doc = create_testcase_file(doc,  parent,  filePath,  fileName, size, suffix);
     }
+    writeToFile(doc, "testcase_debug");
     return doc;
 }
 
@@ -150,7 +150,7 @@ void xmlOutput::create_testcase5_data () {
     QString fileName = "dir5";
     QString size = ""; //","C:/TDD_testdir/dir5/file1");
     QString suffix = ""; //"
-    doc = create_testcase_data(doc, doc.firstChildElement(), "directory", filePath, fileName, size, suffix);
+    doc = create_testcase_data(doc, doc.documentElement(), "directory", filePath, fileName, size, suffix);
 
     filePath = "C:/TDD_testdir/dir5/sdir1";
     fileName = "sdir1";

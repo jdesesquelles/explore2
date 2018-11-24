@@ -3,15 +3,13 @@
 
 #include <QObject>
 
-class Query : public QObject
+class Query
 {
-    Q_OBJECT
+
 public:
-    explicit Query(QObject *parent = 0);
+    Query();
+    void explore();
 
-signals:
-
-public slots:
 };
 
 #endif // QUERY_H
